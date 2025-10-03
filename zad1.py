@@ -1,4 +1,5 @@
 from decimal import Decimal, ROUND_HALF_UP
+from fractions import Fraction
 
 #создайте список квадратов чисел от 1 до 10 с использованием list comprehension
 squares = [x**2 for x in range(1, 11)]
@@ -69,3 +70,20 @@ profit = S - P
 # Вывод результатов
 print(f"Итоговая сумма вклада: {S} руб.")
 print(f"Общая прибыль: {profit.quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)} руб.")
+
+#Создание двух дробей с помощью fractions и простейшие вычисления
+# Создание дробей
+frac1 = Fraction(3, 4)
+frac2 = Fraction(5, 6)
+
+# Выполнение операций
+sum_result = frac1 + frac2
+diff_result = frac1 - frac2
+mul_result = frac1 * frac2
+div_result = frac1 / frac2
+
+# Вывод результатов
+print(f"\nСложение дроби {frac1} и {frac2}: {sum_result}")
+print(f"Вычитание дроби {frac1} и {frac2}: {diff_result}")
+print(f"Умножение дроби {frac1} и {frac2}: {mul_result}")
+print(f"Деление дроби {frac1} и {frac2}: {div_result}")
