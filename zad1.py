@@ -124,3 +124,21 @@ if next_birthday < current_date:
     next_birthday = datetime(current_date.year + 1, birth_date.month, birth_date.day)
 days_to_birthday = (next_birthday - current_date).days
 print(f"Сколько дней до следующего дня рождения: {days_to_birthday} дней")
+
+#DateTime (форматирование строк)
+#Напиши функцию которая принимает datetime и вывод строку в виде Сегодня .. .. ....
+def format_datetime():
+    # Сообщение пользователю о формате ввода
+    print("\nВведите дату и время в формате: ГГГГ-ММ-ДД ЧЧ:ММ (например, 2025-09-26 05:30)")
+    user_input = input("Введите дату и время: ")
+
+    # Преобразование введенной строки в объект datetime
+    dt = datetime.strptime(user_input, "%Y-%m-%d %H:%M")
+
+    # Форматирование результата
+    return f"Сегодня {dt.day} {dt.strftime('%B')} {dt.year} года, время: {dt.strftime('%H:%M')}"
+
+
+# Вызов функции и вывод результата
+result = format_datetime()
+print(result)
