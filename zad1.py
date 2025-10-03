@@ -1,5 +1,6 @@
 from decimal import Decimal, ROUND_HALF_UP
 from fractions import Fraction
+from datetime import datetime
 
 #создайте список квадратов чисел от 1 до 10 с использованием list comprehension
 squares = [x**2 for x in range(1, 11)]
@@ -87,3 +88,16 @@ print(f"\nСложение дроби {frac1} и {frac2}: {sum_result}")
 print(f"Вычитание дроби {frac1} и {frac2}: {diff_result}")
 print(f"Умножение дроби {frac1} и {frac2}: {mul_result}")
 print(f"Деление дроби {frac1} и {frac2}: {div_result}")
+
+#DateTime вывод текущей даты и времени
+# Текущая дата и время
+current_datetime = datetime.now()
+print(f"\nТекущая дата и время: {current_datetime}")
+
+# Только текущая дата
+current_date = current_datetime.date()
+print(f"Только текущая дата: {current_date}")
+
+# Только текущее время
+current_time = current_datetime.time()
+print(f"Только текущее время: {current_time}")
