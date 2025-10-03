@@ -101,3 +101,26 @@ print(f"Только текущая дата: {current_date}")
 # Только текущее время
 current_time = current_datetime.time()
 print(f"Только текущее время: {current_time}")
+
+#DateTime вывод дня рождения и сегодняшней даты, сколько осталось до дня рождения и сколько дней прошло с дня рождения
+# Ввод даты рождения с клавиатуры (формат: день.месяц.год)
+birth_date_str = input("\nВведите дату рождения (дд.мм.гггг): ")
+birth_date = datetime.strptime(birth_date_str, "%d.%m.%Y")
+
+# Текущая дата (02:32 PM CEST, 03.10.2025)
+current_date = datetime(2025, 10, 3, 14, 32)
+
+# Вывод текущей даты в формате день.месяц.год
+current_date_str = current_date.strftime("%d.%m.%Y")
+print(f"Текущая дата: {current_date_str}")
+
+# Вычисление дней с момента рождения
+days_passed = (current_date - birth_date).days
+print(f"Сколько дней прошло с момента рождения: {days_passed} дней")
+
+# Вычисление дней до следующего дня рождения
+next_birthday = datetime(current_date.year, birth_date.month, birth_date.day)
+if next_birthday < current_date:
+    next_birthday = datetime(current_date.year + 1, birth_date.month, birth_date.day)
+days_to_birthday = (next_birthday - current_date).days
+print(f"Сколько дней до следующего дня рождения: {days_to_birthday} дней")
