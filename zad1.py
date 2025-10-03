@@ -1,3 +1,5 @@
+from decimal import Decimal, ROUND_HALF_UP
+
 #создайте список квадратов чисел от 1 до 10 с использованием list comprehension
 squares = [x**2 for x in range(1, 11)]
 print(f"\nСписок квадратов числе от 1 до 10 {squares}\n")
@@ -48,3 +50,22 @@ n = int(input("\nВведите количество чисел Фибоначч
 print(f'Последовательность Фибоначи для {n} чисел')
 for num in fibonacci(n):
     print(num)
+
+#Калькулятор вкладов
+# Ввод данных от пользователя
+P = Decimal(input("\nВведите начальную сумму вклада (в рублях): ").replace(',', '.'))
+r = Decimal(input("Введите процентную ставку годовых (например, 7.5): ").replace(',', '.'))
+t = Decimal(input("Введите срок вклада (в годах): "))
+
+# Расчет итоговой суммы с ежемесячной капитализацией
+S = P * (Decimal('1') + r / (Decimal('12') * Decimal('100'))) ** (Decimal('12') * t)
+
+# Округление до 2 знаков после запятой
+S = S.quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+
+# Расчет прибыли
+profit = S - P
+
+# Вывод результатов
+print(f"Итоговая сумма вклада: {S} руб.")
+print(f"Общая прибыль: {profit.quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)} руб.")
